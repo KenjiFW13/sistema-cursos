@@ -15,13 +15,16 @@ public class Modulo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "curso_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "curso_id", nullable = false)
     private Curso curso;
 
+    @Column(nullable = false, length = 150)
     private String titulo;
 
+    @Column(nullable = false)
     private Integer ordem;
 
+    @Column(nullable = false)
     private Integer cargaHoraria;
 }
